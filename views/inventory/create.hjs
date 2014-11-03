@@ -1,0 +1,47 @@
+{{<layout}}
+{{$content}}
+
+{{#stock}}
+    <h3>New Inventory Report for '{{StockName}}' @{{StockLocation}}</h3>
+    <input type="hidden" value="{{StockID}}" name="StockID" id="StockID"/>
+{{/stock}}
+
+<div class="row">
+    {{#products}}
+        <div class="col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">{{ProductName}} <span class="label label-info pull-right">ProductID: {{ProductID}}</span></h3>
+                </div>
+                <div class="panel-body">
+                    {{#ProductDescription}}
+                        <b>Description:</b> {{ProductDescription}}<br>
+                    {{/ProductDescription}}
+                    <div class="form-group">
+                        <div class="input-group">
+                            <div class="input-group-addon">{{ProductUnit}}</div>
+                            <input class="form-control reportData" type="number" placeholder="Enter amount" name="{{ProductID}}" id="{{ProductID}}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {{/products}}
+</div>
+
+<div class="btn-group btn-group-justified">
+    <div class="btn-group">
+        <button class="btn btn-success btn-lg" id="saveReportBtn" type="button"><i class="fa fa-plus"></i> Save</button>
+    </div>
+    <a href="/" class="btn btn-danger btn-lg"><i class="fa fa-close"></i> Cancel</a>
+</div>
+
+<script>
+    $('#saveReportBtn').on('click',function(){
+        saveReport();
+    });
+</script>
+
+
+{{/content}}
+{{/layout}}

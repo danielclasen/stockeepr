@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html manifest="/app.cache">
+<head>
+    <title>{{ title }}</title>
+    <link rel='stylesheet' href='/stylesheets/normalize.css' />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel='stylesheet' href='/stylesheets/bootstrap.min.css' />
+    <link rel='stylesheet' href='/stylesheets/font-awesome.min.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <script src="/javascripts/jquery-1.11.1.min.js"></script>
+    <script src="/javascripts/bootstrap.min.js"></script>
+    <script src="/javascripts/stockeepr.js"></script>
+</head>
+<body>
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div>
+            <a class="navbar-brand" href="/" style="padding: 0 15px;">
+                <img src="/images/logo.png" style="height: 60px; margin-top:-7px;">
+            </a>
+        </div>
+
+
+        <span id="onlineIndicator" class="label label-success pull-right" style="margin: 15px;"><i class="fa fa-spinner fa-spin" id="onlineLoading" style="margin-right: 5px;"></i><span id="onlineIndicatorText">Online</span></span>
+    </div><!-- /.container-fluid -->
+</nav>
+
+<p>
+{{$content}} default content {{/content}}
+</p>
+
+</body>
+</html>

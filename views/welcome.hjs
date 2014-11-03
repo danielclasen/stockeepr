@@ -1,0 +1,11 @@
+<div class="panel panel-default">
+    <div class="panel-body">
+        <h2 style="margin-top: 0px;">Welcome to {{ title }}...</h2>
+        <b>...your stock-keeping and inventory helper!</b>
+        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+        invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.
+        At vero eos et accusam et justo duo dolores et ea rebum...
+    </div>
+</div>
+
+
