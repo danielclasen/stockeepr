@@ -16,7 +16,7 @@ function deleteReport(inventoryId){
 
 function checkPendingSync(){
 
-    var openRequest = indexedDB.open("stockeepr",1);
+    var openRequest = indexedDB.open("stockeepr",3);
     openRequest.onsuccess = function(e) {
         console.log("Success READ!");
         var db = e.target.result;
@@ -66,7 +66,7 @@ function saveReport(reportData){
     if (reportData == null)
         reportData = collectReportData();
 
-    var openRequest = indexedDB.open("stockeepr",1);
+    var openRequest = indexedDB.open("stockeepr",3);
 
     openRequest.onupgradeneeded = function(e) {
         console.log("Upgrading...");
@@ -106,7 +106,15 @@ function saveReport(reportData){
 
 function synchronize(){
 
-    var openRequest = indexedDB.open("stockeepr",1);
+    var openRequest = indexedDB.open("stockeepr",3);
+    openRequest.onupgradeneeded = function(e) {
+        console.log("Upgrading...");
+        var thisDB = e.target.result;
+
+        if(!thisDB.objectStoreNames.contains("reports")) {
+            thisDB.createObjectStore("reports",{autoIncrement:true});
+        }
+    };
     openRequest.onsuccess = function(e) {
         console.log("Success READ!");
         var db = e.target.result;
@@ -142,7 +150,7 @@ function synchronize(){
 
     function deleteRow(key){
         console.log("Deleting row " + key);
-        var openRequest = indexedDB.open("stockeepr",1);
+        var openRequest = indexedDB.open("stockeepr",3);
         openRequest.onsuccess = function(e) {
             console.log("Success!");
             db = e.target.result;

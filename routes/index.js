@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 /* GET home page. */
+//http://localhost:3000/ {get|html}
 router.get('/', function (req, res) {
 
     req.getConnection(function(err,connection){
@@ -26,6 +27,7 @@ router.get('/', function (req, res) {
 
 });
 
+//http://localhost:3000/check {get|json}
 router.get('/check', function (req, res) {
     res.send({status:200});
 });

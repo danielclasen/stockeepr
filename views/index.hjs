@@ -1,40 +1,38 @@
 {{<layout}}
-{{$content}}
-{{> welcome}}
+    {{$content}}
+        {{> welcome}}
 
+        <div class="row">
+        {{#data}}
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title"><i class="fa fa-building"></i> {{StockName}} <small>{{StockLocation}}</small> <i class="pull-right"></i></h3>
+                        </div>
+                        <div class="panel-body" id="bodyStock-{{StockID}}">
+                            <p>Pending Sync:</p>
+                        </div>
+                        <div class="panel-footer">
 
+                            <div class="btn-group btn-group-justified">
+                                <a href="inventory/create/{{StockID}}" class="btn btn-success"><i class="fa fa-plus"></i> Create Report</a>
+                                <a href="inventory/list/{{StockID}}" class="btn btn-default"><i class="fa fa-list"></i> List Reports</a>
+                            </div>
 
-<div class="row">
-{{#data}}
-        <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    <h3 class="panel-title"><i class="fa fa-building"></i> {{StockName}} <small>{{StockLocation}}</small> <i class="pull-right"></i></h3>
-                </div>
-                <div class="panel-body" id="bodyStock-{{StockID}}">
-                    <p>Pending Sync:</p>
-                </div>
-                <div class="panel-footer">
-
-                    <div class="btn-group btn-group-justified">
-                        <a href="inventory/create/{{StockID}}" class="btn btn-success"><i class="fa fa-plus"></i> Create Report</a>
-                        <a href="inventory/list/{{StockID}}" class="btn btn-default"><i class="fa fa-list"></i> List Reports</a>
+                        </div>
                     </div>
-
                 </div>
-            </div>
+        {{/data}}
         </div>
-{{/data}}
-</div>
 
-<script>
-    checkPendingSync();
-    $(document).ready(function(){
-        window.setInterval(function(){
+        <script>
             checkPendingSync();
-        },1000);
-    });
-</script>
+            $(document).ready(function(){
+                window.setInterval(function(){
+                    checkPendingSync();
+                },1000);
+            });
+        </script>
 
-{{/content}}
+    {{/content}}
 {{/layout}}
